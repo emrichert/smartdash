@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>US COVID-19 Rates</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web|Oswald" rel="stylesheet">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style1.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/c3.min.css">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
+    <script src="js/d3.js"></script>
+    <script src="js/c3.min.js"></script>
+</head>
+
+<body>
+    <div id="info">
+        <div id="title">
+            <h2>US COVID-19 Rates - 2020</h2>
+            <span><a href="https://twitter.com/UW" target="_blank"><i class="bi bi-twitter"></i></a></span>
+            <span><a href="https://github.com/emrichert" target="_blank"><i class="bi bi-github"></i></a></span>
+            <span id="reset"><a href="#">reset view</a></span>
+        </div>
+        
+        <div id="kpi-rate"></div>
+        <div id="scatter-rate-pop18"></div>
+
+        <div id="footer">
+            <h3>About this dashboard</h3>
+            <p>This dashboard visualizes county level COVID -19 case rates across the United States in 2020. The choropleth 
+                map displays cases per 1,000 adults, normalizing data for comparison across counties regardless of population 
+                size. Darker shades represent higher case rates.</p>
+            <p>The gauge updates when a county is selected, highlighting that county’s case rate relative to the full national
+                 range. This provides quick contextual reference of relative magnitude without requiring users to interpret 
+                 the legend alone.</p>
+            <p>The scatterplot compares adult population size and COVID-19 case rates for all counties. Each point represents
+                 a county. This view allows users to examine whether more populous counties experienced higher case 
+                 rates, or whether rates varied independently of population size.</p>
+            <h3>How to use</h3>
+            <ul>
+                <li>Hover over the map to view county details</li>
+                <li>Click a county to update the gauge and highlight its position in the scatterplot</li>
+                <li>Use zoom within the scatterplot to explore dense regions</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div id="map"></div>
+    <div id="map-source">
+        Source:
+        <a href="https://github.com/nytimes/covid-19-data/blob/43d32dde2f87bd4dafbb7d23f5d9e878124018b8/live/us-counties.csv">NYT</a>,
+        <a href="https://data.census.gov/table/ACSDP5Y2018.DP05?g=0100000US$050000&d=ACS+5-Year+Estimates+Data+Profiles">2018 ACS 5-year</a>
+    </div>
+    <div class='map-overlay' id='features'>
+        <h2>US Covid-19 Rates 2020</h2>
+        <div id='text-description'>
+            <p>Hover over a county to see its COVID-19 rate.</p>
+        </div>
+    </div>
+    <div class='map-overlay' id='legend'></div>
+    <script src="config.js"></script>
+    <script src="js/main1.js"></script>
+</body>
+
+</html>

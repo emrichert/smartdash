@@ -1,0 +1,296 @@
+/* Page basics */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Titillium Web', serif;
+}
+
+body {
+  overflow: hidden;
+}
+
+/* Map stays full screen behind sidebar */
+#map {
+  position: absolute;
+  inset: 0;
+}
+
+/* Sidebar panel */
+#info {
+  z-index: 1000;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  bottom: 16px;
+  width: 440px;
+
+  padding: 22px 20px;
+  background: rgba(150, 129, 116, 0.904);
+  color: #fff;
+
+  border-radius: 16px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* Sidebar typography */
+#info h1, #info h2, #info h3 {
+  margin: 0 0 10px 0;
+  letter-spacing: 0.2px;
+}
+
+#info h2 {
+  font-size: 26px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+#info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+#info p {
+  margin: 10px 0;
+  line-height: 1.45;
+  opacity: 0.95;
+}
+
+
+#footer {
+  margin-top: 14px;
+  padding: 14px 14px 10px 14px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+}
+
+#footer h3 {
+  margin: 0 0 8px 0;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.96);
+}
+
+#footer p {
+  margin: 8px 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+#footer ul {
+  margin: 8px 0 0 0;
+  padding-left: 18px;
+}
+
+#footer li {
+  margin: 6px 0;
+  font-size: 13px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+#reset {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#reset a {
+  color: #782786;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+#reset a:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+/* wrapper */
+#kpi-rate,
+#scatter-rate-pop18 {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  padding: 14px 14px 8px 14px;
+  margin: 14px 0;
+}
+
+#scatter-rate-pop18 {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+  padding: 5px 5px 5px 5px; /* bottom space for x ticks, right space for max dot */
+  border-radius: 16px;
+}
+
+/* KPI gauge styling */
+#kpi-rate .c3-chart-arcs-background {
+  fill: rgba(255, 255, 255, 0.28);
+}
+
+#kpi-rate .c3-chart-arcs .c3-chart-arcs-gauge-min,
+#kpi-rate .c3-chart-arcs .c3-chart-arcs-gauge-max {
+  fill: rgba(255, 255, 255, 0.75);
+  font-size: 12px;
+}
+
+#kpi-rate .c3-gauge-value {
+  font-size: 40px;
+  font-weight: 800;
+  fill: #ffffff;
+  letter-spacing: 0.3px;
+}
+
+#kpi-rate .c3-chart-arcs-gauge-unit {
+  font-size: 14px;
+  fill: rgba(255, 255, 255, 0.92);
+}
+
+/* Scatterplot readability */
+
+#scatter-rate-pop18 svg {
+  width: 100% !important;
+  height: 290px !important; /* pick a fixed height so it does not squish */
+  display: block;
+}
+
+#scatter-rate-pop18 svg text {
+  fill: rgba(255, 255, 255, 0.92);
+  font-size: 12px;
+}
+
+#scatter-rate-pop18 .c3-axis path,
+#scatter-rate-pop18 .c3-axis line {
+  stroke: rgba(255, 255, 255, 0.40);
+}
+
+
+#scatter-rate-pop18 .c3-grid line {
+  stroke: rgba(255, 255, 255, 0.16);
+}
+
+#scatter-rate-pop18 .c3 {
+  padding-right: 19px;
+  box-sizing: border-box;
+}
+
+#scatter-rate-pop18 .c3-axis-x-label {
+  transform: translateY(8px);
+}
+
+#scatter-rate-pop18 .c3,
+#scatter-rate-pop18 .c3 svg,
+#scatter-rate-pop18 .c3-chart {
+  overflow: visible !important;
+}
+
+#scatter-rate-pop18 svg circle.c3-circle {
+  fill-opacity: 0.5;
+}
+
+#scatter-rate-pop18 svg .selected-dot {
+  fill-opacity: 1 !important;
+  stroke: #00d5ff !important;
+  stroke-width: 5px !important;
+}
+
+/* C3 legend cleanup */
+#scatter-rate-pop18 .c3-legend-item text,
+#kpi-rate .c3-legend-item text {
+  fill: rgba(255, 255, 255, 0.92);
+  font-size: 12px;
+}
+
+/* Map overlays on the left */
+.map-overlay {
+  position: absolute;
+  left: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  font-family: 'Titillium Web', serif;
+}
+
+#features {
+  top: 16px;
+  width: 270px;
+  padding: 10px 12px;
+  height: auto;
+}
+
+#features h2,
+#features h3 {
+  margin: 6px 0;
+}
+
+#features p {
+  margin: 6px 0;
+  color: rgba(0, 0, 0, 0.78);
+}
+
+/* Legend panel */
+#legend {
+  bottom: 16px;
+  padding: 12px;
+  line-height: 18px;
+  width: 170px;
+  height: auto;
+  margin-bottom: 0;
+}
+
+.legend-key {
+  display: inline-block;
+  border-radius: 4px;
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* Source box */
+#map-source {
+  position: absolute;
+  left: 16px;
+  bottom: 200px;
+  width: 170px;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 10px 12px;
+  font-size: 12px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+#map-source a {
+  color: #2b6cb0;
+  text-decoration: none;
+}
+
+#map-source a:hover {
+  text-decoration: underline;
+}
+
+/* Make scrollbars subtle in sidebar */
+#info::-webkit-scrollbar {
+  width: 10px;
+}
+
+#info::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
+}
+
+#info::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 10px;
+}
