@@ -245,7 +245,7 @@ function highlightScatterByFeature(feature) {
 
 // Data n Map layers
 async function geojsonFetch() {
-  const response = await fetch('./assets/us-covid.json');
+  const response = await fetch('assets/us-covid.json');
   const countyData = await response.json();
 
   map.on('load', () => {
